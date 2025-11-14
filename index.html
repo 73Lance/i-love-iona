@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy 3 Months 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(15, 23, 42, 0.9);
+      --accent: #f472b6;
+      --accent-soft: rgba(244, 114, 182, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --radius: 18px;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.18) 0, transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(244,114,182,0.18) 0, transparent 45%),
+        radial-gradient(circle at 30% 80%, rgba(56,189,248,0.16) 0, transparent 45%);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 18px 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .heart-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 18px 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      backdrop-filter: blur(16px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-names {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .tiny {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .moment {
+      border-left: 2px solid rgba(248, 250, 252, 0.18);
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .moment::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.25);
+    }
+
+    .moment-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .moment-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .reasons {
+      display: grid;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .reason {
+      display: flex;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .reason-bullet {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      aspect-ratio: 3 / 4;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .photo::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      right: 8px;
+      font-size: 0.7rem;
+      color: #e5e7eb;
+      text-shadow: 0 1px 3px rgba(15, 23, 42, 0.9);
+      opacity: 0.9;
+    }
+
+    .letter {
+      font-size: 0.95rem;
+      white-space: pre-line;
+      margin-top: 4px;
+    }
+
+    .signature {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .future-list {
+      display: grid;
+      gap: 4px;
+      margin-top: 4px;
+      font-size: 0.93rem;
+    }
+
+    .future-item::before {
+      content: "→ ";
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .tiny-heart {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin: 0 3px;
+    }
+
+    @media (min-width: 720px) {
+      main {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        grid-template-areas:
+          "hero hero"
+          "timeline reasons"
+          "gallery gallery"
+          "letter future";
+      }
+      .card--hero { grid-area: hero; }
+      .card--timeline { grid-area: timeline; }
+      .card--reasons { grid-area: reasons; }
+      .card--gallery { grid-area: gallery; }
+      .card--letter { grid-area: letter; }
+      .card--future { grid-area: future; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="container">
+    <header>
+      <div class="pill">
+        <span class="heart-dot"></span>
+        3 Months of Us
+      </div>
+      <h1>Happy 3-Month Anniversary 💗</h1>
+      <p class="subtitle">
+        For <strong><!-- her name here -->Iona</strong>, from <strong><!-- your name here -->Gerard</strong>.  
+        Three months down, a whole lifetime to go.
+      </p>
+    </header>
+
+    <main>
+      <!-- HERO CARD -->
+      <section class="card card--hero">
+        <div class="card-header">
+          <div class="card-title">Us, in one little universe</div>
+          <div class="card-tag">Since <!-- date --> 14 August 2025</div>
+        </div>
+        <p class="hero-names">
+          <strong>Gerard</strong> × <strong>Iona</strong>
+        </p>
+        <p class="tiny">
+          Somewhere between bad jokes, late-night talks and shared snacks,
+          we accidentally made something very, very special.
+        </p>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="card card--timeline">
+        <div class="card-header">
+          <div class="card-title">Little milestones</div>
+          <div class="card-tag">Our timeline</div>
+        </div>
+        <div class="timeline">
+          <div class="moment">
+            <div class="moment-date">14 Aug 2025</div>
+            <div class="moment-title">We made it official</div>
+            <div>Two slightly nervous people deciding “okay, this is real now”.</div>
+          </div>
+          <div class="moment">
+            <div class="moment-date">First date</div>
+            <div class="moment-title">Our first “us” day</div>
+            <div>Insert something only we would understand here 🫶</div>
+          </div>
+          <div class="moment">
+            <div class="moment-date">Some random night</div>
+            <div class="moment-title">The first “I really don’t want this to end”</div>
+            <div>That moment where leaving you felt wrong in the best way.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REASONS -->
+      <section class="card card--reasons">
+        <div class="card-header">
+          <div class="card-title">Why I adore you</div>
+          <div class="card-tag">(A non-exhaustive list)</div>
+        </div>
+        <div class="reasons">
+          <div class="reason">
+            <span class="reason-bullet">✦</span>
+            <span>You make even the most ordinary days feel like they matter.</span>
+          </div>
+          <div class="reason">
+            <span class="reason-bullet">✦</span>
+            <span>The way you care about people is so genuine it makes me want to be better.</span>
+          </div>
+          <div class="reason">
+            <span class="reason-bullet">✦</span>
+            <span>Your laugh, your face when you’re focused, your random little habits – all S-tier.</span>
+          </div>
+          <div class="reason">
+            <span class="reason-bullet">✦</span>
+            <span>You haven’t run away from my overthinking. You stay, and that means everything.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="card card--gallery">
+        <div class="card-header">
+          <div class="card-title">Tiny gallery of us</div>
+          <div class="card-tag">Snapshots</div>
+        </div>
+        <div class="gallery">
+          <!-- Replace background-image URLs with yours (or leave blank & it’ll just be a gradient box) -->
+          <div class="photo"
+               style="background-image: url('photo1.jpg');"
+               data-caption="First date vibes"></div>
+          <div class="photo"
+               style="background-image: url('photo2.jpg');"
+               data-caption="Your favourite selfie of us"></div>
+          <div class="photo"
+               style="background-image: url('photo3.jpg');"
+               data-caption="That silly moment I keep rewatching"></div>
+        </div>
+      </section>
+
+      <!-- LETTER -->
+      <section class="card card--letter">
+        <div class="card-header">
+          <div class="card-title">A little letter for you</div>
+          <div class="card-tag">From me to you</div>
+        </div>
+        <p class="letter">
+          Dear Iona,
+
+          Three months feels tiny on a calendar, but huge in my chest.
+          You’ve already changed the way my days feel. You’re the person
+          I look for in every room, the notification I’m actually excited to see,
+          and the reason the future feels a bit less scary and a lot more worth it.
+
+          Thank you for being patient with me when I overthink,
+          for laughing with me, for letting me be soft with you.
+          I don’t know exactly where life will drag us, but I know one thing:
+          I want to keep choosing you, again and again.
+
+          Happy 3 months, my love.
+        </p>
+        <p class="signature">
+          With all my love,<br />
+          Gerard
+        </p>
+      </section>
+
+      <!-- FUTURE -->
+      <section class="card card--future">
+        <div class="card-header">
+          <div class="card-title">Things I’m excited for</div>
+          <div class="card-tag">To be continued…</div>
+        </div>
+        <div class="future-list">
+          <div class="future-item">More late-night talks where we overshare and it somehow feels safe.</div>
+          <div class="future-item">More dates that don’t have to be fancy, just us.</div>
+          <div class="future-item">Cheering for each other when life gets stressful.</div>
+          <div class="future-item">Looking back one day and saying, “Remember when this was only 3 months?”</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Made with a laptop, way too many feelings, and a tiny<span class="tiny-heart">♥</span>for you.
+    </footer>
+  </div>
+</body>
+</html>
