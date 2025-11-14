@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy 3 Months 💕</title>
+  <title>Gerard × Iona – 3 Months 💕</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A little website from Gerard to Iona for their 3-month anniversary." />
   <style>
     :root {
-      --bg: #0f172a;
-      --card: rgba(15, 23, 42, 0.9);
+      --bg: #020617;
+      --bg-soft: #0b1220;
+      --card: rgba(15, 23, 42, 0.96);
       --accent: #f472b6;
-      --accent-soft: rgba(244, 114, 182, 0.15);
+      --accent-soft: rgba(244, 114, 182, 0.1);
+      --accent-alt: #38bdf8;
       --text: #e5e7eb;
       --muted: #9ca3af;
       --radius: 18px;
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
     }
 
     * {
@@ -22,12 +25,17 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     .stars {
@@ -40,17 +48,105 @@
         radial-gradient(circle at 30% 80%, rgba(56,189,248,0.16) 0, transparent 45%);
       opacity: 0.35;
       z-index: -1;
+      animation: floatGlow 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate3d(0, 0, 0); opacity: 0.3; }
+      100% { transform: translate3d(0, -12px, 0); opacity: 0.4; }
     }
 
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 32px 18px 48px;
+      padding: 20px 16px 40px;
+    }
+
+    /* TOP BAR / NAV */
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,0.23), transparent 55%),
+                  rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.25);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.85);
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+    }
+
+    .top-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .avatar-pair {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: conic-gradient(from 120deg, #f472b6, #38bdf8, #a855f7, #f97316, #f472b6);
+      padding: 2px;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 20%, #f9a8d4 0, #0f172a 65%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.3);
+      background: rgba(15,23,42,0.7);
+      padding: 4px 9px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+    }
+
+    .nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .nav-chip:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-1px);
     }
 
     header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      margin-top: 12px;
     }
 
     .pill {
@@ -70,6 +166,7 @@
       height: 7px;
       border-radius: 999px;
       background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.3);
     }
 
     h1 {
@@ -84,20 +181,38 @@
       margin: 0 auto;
     }
 
+    .subtitle strong {
+      color: #f9a8d4;
+      font-weight: 600;
+    }
+
     main {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-top: 28px;
+      margin-top: 22px;
     }
 
     .card {
-      background: var(--card);
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.12), transparent 55%),
+                  var(--card);
       border-radius: var(--radius);
       padding: 18px 18px 18px;
       box-shadow: var(--shadow);
       border: 1px solid rgba(148, 163, 184, 0.18);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease,
+                  background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+      border-color: rgba(244, 114, 182, 0.45);
+      background: radial-gradient(circle at top left, rgba(244,114,182,0.13), transparent 55%),
+                  var(--card);
     }
 
     .card-header {
@@ -118,6 +233,7 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
     .hero-names {
@@ -128,6 +244,33 @@
     .tiny {
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+
+    .mini-pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.7);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mini-pill span {
+      font-size: 0.85rem;
+    }
+
+    .mini-emoji {
+      font-size: 0.85rem;
     }
 
     .timeline {
@@ -198,6 +341,9 @@
       aspect-ratio: 3 / 4;
       background-size: cover;
       background-position: center;
+      background-image: radial-gradient(circle at top, #1e293b, #020617);
+      isolation: isolate;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .photo::after {
@@ -210,6 +356,12 @@
       color: #e5e7eb;
       text-shadow: 0 1px 3px rgba(15, 23, 42, 0.9);
       opacity: 0.9;
+    }
+
+    .photo:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.95);
+      border-color: rgba(56,189,248,0.55);
     }
 
     .letter {
@@ -269,41 +421,85 @@
   </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <div class="stars" aria-hidden="true"></div>
 
   <div class="container">
-    <header>
+    <!-- STICKY TOP BAR -->
+    <div class="top-bar" aria-label="Page navigation">
+      <div class="top-brand">
+        <div class="avatar-pair">
+          <div class="avatar-inner">G×I</div>
+        </div>
+        <span>Gerard & Iona · 3 months</span>
+      </div>
+      <nav class="top-nav">
+        <a class="nav-chip" href="#hero">
+          <span class="nav-dot"></span><span>Us</span>
+        </a>
+        <a class="nav-chip" href="#timeline">
+          <span class="nav-dot"></span><span>Moments</span>
+        </a>
+        <a class="nav-chip" href="#reasons">
+          <span class="nav-dot"></span><span>Reasons</span>
+        </a>
+        <a class="nav-chip" href="#gallery">
+          <span class="nav-dot"></span><span>Photos</span>
+        </a>
+        <a class="nav-chip" href="#letter">
+          <span class="nav-dot"></span><span>Letter</span>
+        </a>
+        <a class="nav-chip" href="#future">
+          <span class="nav-dot"></span><span>Future</span>
+        </a>
+      </nav>
+    </div>
+
+    <header id="hero">
       <div class="pill">
         <span class="heart-dot"></span>
         3 Months of Us
       </div>
       <h1>Happy 3-Month Anniversary 💗</h1>
       <p class="subtitle">
-        For <strong><!-- her name here -->Iona</strong>, from <strong><!-- your name here -->Gerard</strong>.  
-        Three months down, a whole lifetime to go.
+        For <strong>Iona</strong>, from <strong>Gerard</strong>.  
+        Three months down, a whole lifetime to figure out together.
       </p>
     </header>
 
     <main>
       <!-- HERO CARD -->
-      <section class="card card--hero">
+      <section class="card card--hero" aria-labelledby="hero-title">
         <div class="card-header">
-          <div class="card-title">Us, in one little universe</div>
-          <div class="card-tag">Since <!-- date --> 14 August 2025</div>
+          <div class="card-title" id="hero-title">Our tiny universe</div>
+          <div class="card-tag">Since 14 August 2025</div>
         </div>
         <p class="hero-names">
           <strong>Gerard</strong> × <strong>Iona</strong>
         </p>
         <p class="tiny">
           Somewhere between bad jokes, late-night talks and shared snacks,
-          we accidentally made something very, very special.
+          we accidentally made something really, really special.
         </p>
+        <div class="hero-meta">
+          <div class="mini-pill">
+            <span class="mini-emoji">📍</span>
+            <span><!-- e.g. Sheffield, random room, etc. -->Our little corner of the world</span>
+          </div>
+          <div class="mini-pill">
+            <span class="mini-emoji">🎧</span>
+            <span><!-- e.g. your song --> Our song: <em>write it here</em></span>
+          </div>
+          <div class="mini-pill">
+            <span class="mini-emoji">⏱️</span>
+            <span>3 months of “one more minute together”</span>
+          </div>
+        </div>
       </section>
 
       <!-- TIMELINE -->
-      <section class="card card--timeline">
+      <section class="card card--timeline" id="timeline" aria-labelledby="timeline-title">
         <div class="card-header">
-          <div class="card-title">Little milestones</div>
+          <div class="card-title" id="timeline-title">Little milestones</div>
           <div class="card-tag">Our timeline</div>
         </div>
         <div class="timeline">
@@ -313,22 +509,27 @@
             <div>Two slightly nervous people deciding “okay, this is real now”.</div>
           </div>
           <div class="moment">
-            <div class="moment-date">First date</div>
-            <div class="moment-title">Our first “us” day</div>
-            <div>Insert something only we would understand here 🫶</div>
+            <div class="moment-date"><!-- date -->First date</div>
+            <div class="moment-title"><!-- inside joke -->The day we couldn’t stop looking at each other</div>
+            <div>Write a tiny detail only we’d get – the outfit, the joke, the place.</div>
           </div>
           <div class="moment">
-            <div class="moment-date">Some random night</div>
+            <div class="moment-date"><!-- night -->Some late night</div>
             <div class="moment-title">The first “I really don’t want this to end”</div>
-            <div>That moment where leaving you felt wrong in the best way.</div>
+            <div>That moment where leaving you felt wrong in the best possible way.</div>
+          </div>
+          <div class="moment">
+            <div class="moment-date"><!-- optional -->Bonus memory</div>
+            <div class="moment-title">You did that thing that melted me</div>
+            <div>Describe it in 1–2 sentences so future-us remembers.</div>
           </div>
         </div>
       </section>
 
       <!-- REASONS -->
-      <section class="card card--reasons">
+      <section class="card card--reasons" id="reasons" aria-labelledby="reasons-title">
         <div class="card-header">
-          <div class="card-title">Why I adore you</div>
+          <div class="card-title" id="reasons-title">Why I adore you</div>
           <div class="card-tag">(A non-exhaustive list)</div>
         </div>
         <div class="reasons">
@@ -342,26 +543,30 @@
           </div>
           <div class="reason">
             <span class="reason-bullet">✦</span>
-            <span>Your laugh, your face when you’re focused, your random little habits – all S-tier.</span>
+            <span><!-- personalise -->Your [insert specific trait/habit] is actually one of my favourite things about you.</span>
           </div>
           <div class="reason">
             <span class="reason-bullet">✦</span>
             <span>You haven’t run away from my overthinking. You stay, and that means everything.</span>
           </div>
+          <div class="reason">
+            <span class="reason-bullet">✦</span>
+            <span>You’re not just “my girlfriend”; you’re my safe place, my partner, my favourite human.</span>
+          </div>
         </div>
       </section>
 
       <!-- GALLERY -->
-      <section class="card card--gallery">
+      <section class="card card--gallery" id="gallery" aria-labelledby="gallery-title">
         <div class="card-header">
-          <div class="card-title">Tiny gallery of us</div>
+          <div class="card-title" id="gallery-title">Tiny gallery of us</div>
           <div class="card-tag">Snapshots</div>
         </div>
         <div class="gallery">
-          <!-- Replace background-image URLs with yours (or leave blank & it’ll just be a gradient box) -->
+          <!-- Replace background-image URLs with yours -->
           <div class="photo"
                style="background-image: url('photo1.jpg');"
-               data-caption="First date vibes"></div>
+               data-caption="First date energy"></div>
           <div class="photo"
                style="background-image: url('photo2.jpg');"
                data-caption="Your favourite selfie of us"></div>
@@ -372,23 +577,32 @@
       </section>
 
       <!-- LETTER -->
-      <section class="card card--letter">
+      <section class="card card--letter" id="letter" aria-labelledby="letter-title">
         <div class="card-header">
-          <div class="card-title">A little letter for you</div>
+          <div class="card-title" id="letter-title">A little letter for you</div>
           <div class="card-tag">From me to you</div>
         </div>
         <p class="letter">
           Dear Iona,
 
-          Three months feels tiny on a calendar, but huge in my chest.
-          You’ve already changed the way my days feel. You’re the person
-          I look for in every room, the notification I’m actually excited to see,
-          and the reason the future feels a bit less scary and a lot more worth it.
+          Three months isn’t a long time on a calendar, but it feels huge to me.
+          Somehow, you’ve already woven yourself into my routines, my thoughts,
+          and the way I see the future.
 
-          Thank you for being patient with me when I overthink,
-          for laughing with me, for letting me be soft with you.
-          I don’t know exactly where life will drag us, but I know one thing:
-          I want to keep choosing you, again and again.
+          You’ve seen my anxious side, my overthinking, my late-night spirals,
+          and instead of backing away, you’ve stayed. You make things softer
+          without making me weaker. You make me want to be better, not out of fear,
+          but because you deserve the best version of me.
+
+          I love your laugh, your face when you’re concentrating,
+          and all the tiny habits you probably think no one notices.
+          I notice. And I love them.
+
+          I don’t know exactly what life will throw at us – uni, distance,
+          stress, all of it – but I know this: I want to keep choosing you,
+          again and again, in all of it.
+
+          Thank you for these three months. Here’s to many more.
 
           Happy 3 months, my love.
         </p>
@@ -399,15 +613,15 @@
       </section>
 
       <!-- FUTURE -->
-      <section class="card card--future">
+      <section class="card card--future" id="future" aria-labelledby="future-title">
         <div class="card-header">
-          <div class="card-title">Things I’m excited for</div>
+          <div class="card-title" id="future-title">Things I’m excited for</div>
           <div class="card-tag">To be continued…</div>
         </div>
         <div class="future-list">
           <div class="future-item">More late-night talks where we overshare and it somehow feels safe.</div>
-          <div class="future-item">More dates that don’t have to be fancy, just us.</div>
-          <div class="future-item">Cheering for each other when life gets stressful.</div>
+          <div class="future-item">More dates that don’t have to be fancy, just us being us.</div>
+          <div class="future-item">Cheering for each other when life gets stressful and scary.</div>
           <div class="future-item">Looking back one day and saying, “Remember when this was only 3 months?”</div>
         </div>
       </section>
