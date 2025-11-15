@@ -399,117 +399,108 @@
       margin: 0 3px;
     }
 
-    /* CHIBIS AROUND SECTIONS */
-
+        /* CHIBIS AROUND SECTIONS – cleaner layout */
+    
     .chibi {
       position: absolute;
       z-index: 2;
       pointer-events: none;
     }
-
+    
     .chibi img {
       display: block;
-      max-width: 90px;
+      max-width: 80px;
       height: auto;
     }
-
-    /* hero: Iona + you floating left/right */
-
+    
+    /* HERO: one chibi on each top corner, outside the text area */
+    
     .chibi--iona-hero {
-      top: -6px;
-      right: -4px;
+      top: -38px;
+      right: 24px;
       animation: floatSoft 4s ease-in-out infinite;
     }
-
-    .chibi---hero {
-      bottom: -8px;
-      right: -4px;
-      animation: floatSoft 4.8s ease-in-out infinite;
+    
+    .chibi--gerard-hero {
+      top: -38px;
+      left: 24px;
+      animation: floatSoft 4.6s ease-in-out infinite;
     }
-
-    /* timeline: Link on top left */
-
+    
+    /* TIMELINE: chibi sits on bottom-right corner of the card */
+    
     .chibi--link {
-      top: -14px;
-      left: 8px;
+      bottom: -32px;
+      right: 22px;
       transform-origin: bottom center;
       animation: floatSoft 4.2s ease-in-out infinite;
     }
-
+    
     .chibi--link img {
-      max-width: 80px;
+      max-width: 70px;
     }
-
-    /* reasons: Misa leaning on top-right */
-
+    
+    /* REASONS: Misa on top-right, mostly outside the card */
+    
     .chibi--misa {
-      top: -10px;
-      right: 3px;
+      top: -42px;
+      right: 18px;
       transform-origin: bottom center;
       animation: hangSwing 3.6s ease-in-out infinite;
     }
-
+    
     .chibi--misa img {
-      max-width: 85px;
+      max-width: 72px;
     }
-
-    /* gallery: cat sitting on bottom-right */
-
+    
+    /* GALLERY: cat on bottom-left corner */
+    
     .chibi--cat-gallery {
-      bottom: -4px;
-      right: 0;
+      bottom: -30px;
+      left: 18px;
       animation: floatSoft 5s ease-in-out infinite;
     }
-
+    
     .chibi--cat-gallery img {
-      max-width: 80px;
+      max-width: 70px;
     }
-
-    /* letter: cat hanging over top, spider lily bg */
-
-    .card--letter {
-      border-color: rgba(255,179,217,0.55);
-      background-image:
-          url("spider-lily.png"),
-          radial-gradient(circle at top left, rgba(255,179,217,0.16), transparent 55%),
-          var(--card);
-      background-repeat: no-repeat;
-      background-position: right -18px bottom -10px, 0 0;
-      background-size: 140px, auto;
-    }
-
+    
+    /* LETTER: small cat hanging exactly above the centre */
+    
     .chibi--cat-letter {
-      top: -26px;
+      top: -46px;
       left: 50%;
       transform: translateX(-50%);
       animation: hangSwing 3.5s ease-in-out infinite;
     }
-
+    
     .chibi--cat-letter img {
-      max-width: 80px;
+      max-width: 70px;
     }
-
-    /* future: tiny link & iona chibis */
-
+    
+    /* FUTURE: tiny chibis on left/right bottom corners */
+    
     .chibi--tiny-link {
-      bottom: -4px;
-      left: 8px;
+      bottom: -30px;
+      left: 18px;
       animation: floatSoft 4.4s ease-in-out infinite;
     }
-
+    
     .chibi--tiny-link img {
-      max-width: 60px;
+      max-width: 55px;
     }
-
+    
     .chibi--tiny-iona {
-      bottom: -4px;
-      right: 6px;
+      bottom: -30px;
+      right: 18px;
       animation: floatSoft 4.9s ease-in-out infinite;
     }
-
+    
     .chibi--tiny-iona img {
-      max-width: 60px;
+      max-width: 55px;
     }
+
+
 
     @keyframes floatSoft {
       0%   { transform: translateY(0); }
